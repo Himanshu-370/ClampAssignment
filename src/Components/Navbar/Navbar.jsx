@@ -21,6 +21,17 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  buyNowBtn: {
+    backgroundColor: "#000 !important",
+    color: "#fff !important",
+    width: "100%",
+    fontFamily: "Roboto",
+    fontWeight: "600 !important",
+    padding: "8px 15px !important",
+    borderRadius: "5px !important",
+    textTransform: "none !important",
+    fontSize: "16px !important",
+  },
 }));
 
 const Navbar = () => {
@@ -80,12 +91,13 @@ const Navbar = () => {
                         {(() => {
                           if (!connected) {
                             return (
-                              <ConnectButton
+                              <Button
                                 onClick={openConnectModal}
                                 type="button"
+                                className={classes.buyNowBtn}
                               >
                                 Connect Wallet
-                              </ConnectButton>
+                              </Button>
                             );
                           }
 
