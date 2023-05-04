@@ -265,6 +265,7 @@ const BuyModal = ({ isOpen, handleClose, cryptoTitle, img1, img2, img3 }) => {
                 img3={img3}
                 value1={slider1}
                 value2={slider2}
+                value={amount}
               />
             </Box>
           </Box>

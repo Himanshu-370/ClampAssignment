@@ -84,6 +84,7 @@ const TokenModal = ({
   img3,
   value1,
   value2,
+  value,
 }) => {
   const classes = useStyles();
 
@@ -132,8 +133,7 @@ const TokenModal = ({
           </Box>
           <Box className={classes.flexDisplay} gap={3}>
             <Typography className={classes.fonts} variant="h4">
-              {data?.formatted} <br />
-              {data?.symbol}
+              {value * 0.9880866393888882} <br /> {data?.symbol}
             </Typography>
             <Box mt={2}>
               <Typography variant="subtitle1" className={classes.font}>
@@ -261,9 +261,6 @@ const TokenModal = ({
               <Button className={classes.btn1} onClick={handleopenBuyFinal}>
                 Buy
               </Button>
-              {/* <BuyFinal
-                
-              /> */}
             </Box>
           </Box>
         </Box>
