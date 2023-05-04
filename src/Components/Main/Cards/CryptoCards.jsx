@@ -11,7 +11,7 @@ const CryptoCards = () => {
   const handleLoading = () => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 1000);
   };
 
   React.useEffect(() => {
@@ -35,7 +35,7 @@ const CryptoCards = () => {
 
   return (
     <React.Fragment>
-      <Box sx={{ border: "1px solid #ccc", p: 3, borderRadius: 1.5, mb: 2.5 }}>
+      <Box>
         <Box
           display="flex"
           justifyContent="space-between"

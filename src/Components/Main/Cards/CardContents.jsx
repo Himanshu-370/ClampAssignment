@@ -9,8 +9,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import upright from "../../../assets/upright.png";
-import WalletModal from "../Modal/WalletModal";
-import { Web3Button } from "@web3modal/react";
+import BuyModal from "../Modal/BuyModal";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -52,9 +51,9 @@ export default function CryptoCards({
 }) {
   const classes = useStyles();
 
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <React.Fragment>
@@ -139,7 +138,20 @@ export default function CryptoCards({
         </CardContent>
         <CardActions>
           <Box width="100%">
-            <Web3Button fullWidth icon="hide" label="Buy" />
+            <Button
+              fullWidth
+              className={classes.buyNowBtn}
+              onClick={handleOpen}
+            >
+              Buy
+            </Button>
+            <BuyModal
+              isOpen={open}
+              handleClose={handleClose}
+              cryptoTitle={cryptoTitle}
+              img1={img1}
+              img2={img2}
+            />
           </Box>
         </CardActions>
       </Card>

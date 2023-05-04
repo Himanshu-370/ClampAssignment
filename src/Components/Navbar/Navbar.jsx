@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, Typography, Button, Link } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import logo from "../../assets/logo.png";
-import { Web3Button } from "@web3modal/react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -26,10 +26,6 @@ const useStyles = makeStyles(() => ({
 const Navbar = () => {
   const classes = useStyles();
 
-  // const [isOpen, setIsOpen] = React.useState(false);
-  // const handleOpen = () => setIsOpen(true);
-  // const handleClose = () => setIsOpen(false);
-
   return (
     <React.Fragment>
       <Box sx={{ py: 4.5, borderBottom: "1px solid #cccc" }}>
@@ -52,11 +48,97 @@ const Navbar = () => {
                   alignItems: "flex-end",
                 }}
               >
-                <Web3Button icon="hide" label="Connect Wallet" />
-                {/* <Button className={classes.btn} onClick={handleOpen}>
-                  Connect Wallet
-                </Button> */}
-                {/* <WalletModal isOpen={isOpen} handleClose={handleClose} /> */}
+                <ConnectButton.Custom>
+                  {({
+                    account,
+                    chain,
+                    openAccountModal,
+                    openChainModal,
+                    openConnectModal,
+                    authenticationStatus,
+                    mounted,
+                  }) => {
+                    const ready = mounted && authenticationStatus !== "loading";
+                    const connected =
+                      ready &&
+                      account &&
+                      chain &&
+                      (!authenticationStatus ||
+                        authenticationStatus === "authenticated");
+
+                    return (
+                      <div
+                        {...(!ready && {
+                          "aria-hidden": true,
+                          style: {
+                            opacity: 0,
+                            pointerEvents: "none",
+                            userSelect: "none",
+                          },
+                        })}
+                      >
+                        {(() => {
+                          if (!connected) {
+                            return (
+                              <ConnectButton
+                                onClick={openConnectModal}
+                                type="button"
+                              >
+                                Connect Wallet
+                              </ConnectButton>
+                            );
+                          }
+
+                          if (chain.unsupported) {
+                            return (
+                              <ConnectButton
+                                onClick={openChainModal}
+                                type="button"
+                              >
+                                Wrong network
+                              </ConnectButton>
+                            );
+                          }
+
+                          return (
+                            <div style={{ display: "flex", gap: 12 }}>
+                              <ConnectButton
+                                onClick={openChainModal}
+                                style={{
+                                  display: "flex",
+                                  alignItems: "center",
+                                }}
+                                type="button"
+                              >
+                                {chain.hasIcon && (
+                                  <div
+                                    style={{
+                                      background: chain.iconBackground,
+                                      width: 12,
+                                      height: 12,
+                                      borderRadius: 999,
+                                      overflow: "hidden",
+                                      marginRight: 4,
+                                    }}
+                                  >
+                                    {chain.iconUrl && (
+                                      <img
+                                        alt={chain.name ?? "Chain icon"}
+                                        src={chain.iconUrl}
+                                        style={{ width: 12, height: 12 }}
+                                      />
+                                    )}
+                                  </div>
+                                )}
+                                {chain.name}
+                              </ConnectButton>
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    );
+                  }}
+                </ConnectButton.Custom>
               </Box>
             </Box>
           </Grid>
