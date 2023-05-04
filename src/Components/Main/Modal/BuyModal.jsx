@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { makeStyles } from "@material-ui/styles";
 import TokenModal from "./TokenModal";
+import closeIcon from "../../../assets/close.png";
 
 const useStyles = makeStyles(() => ({
   btn1: {
@@ -99,10 +100,13 @@ const BuyModal = ({ isOpen, handleClose, cryptoTitle, img1, img2, img3 }) => {
   const handleResetButton = (e) => {
     setSlider1(reset);
     setSlider2(reset);
+    setAmount(1);
   };
 
   const [openNext, setOpenNext] = React.useState(false);
-  const handleOpenNext = () => setOpenNext(true);
+  const handleOpenNext = () => {
+    setOpenNext(true);
+  };
   const handleCloseNext = () => setOpenNext(false);
 
   return (
@@ -122,7 +126,9 @@ const BuyModal = ({ isOpen, handleClose, cryptoTitle, img1, img2, img3 }) => {
             >
               {cryptoTitle} Index
             </Typography>
-            <Button onClick={handleClose}>Close</Button>
+            <Button onClick={handleClose}>
+              <img src={closeIcon} />
+            </Button>
           </Box>
 
           <Box
@@ -242,10 +248,24 @@ const BuyModal = ({ isOpen, handleClose, cryptoTitle, img1, img2, img3 }) => {
               <Button className={classes.btn2} onClick={handleResetButton}>
                 Reset Compositions
               </Button>
-              <Button className={classes.btn1} onClick={handleOpenNext}>
+              <Button
+                className={classes.btn1}
+                onClick={() => {
+                  handleOpenNext();
+                }}
+              >
                 Next
               </Button>
-              <TokenModal isOpen={openNext} handleClose={handleCloseNext} />
+              <TokenModal
+                isOpen={openNext}
+                handleClose={handleCloseNext}
+                cryptoTitle={cryptoTitle}
+                img1={img1}
+                img2={img2}
+                img3={img3}
+                value1={slider1}
+                value2={slider2}
+              />
             </Box>
           </Box>
         </Box>

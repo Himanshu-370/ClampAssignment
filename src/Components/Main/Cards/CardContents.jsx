@@ -10,6 +10,8 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import upright from "../../../assets/upright.png";
 import BuyModal from "../Modal/BuyModal";
+import { useAccount } from "wagmi";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const useStyles = makeStyles(() => ({
   btn: {
@@ -54,6 +56,8 @@ export default function CryptoCards({
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const { isConnected } = useAccount();
 
   return (
     <React.Fragment>
@@ -138,13 +142,28 @@ export default function CryptoCards({
         </CardContent>
         <CardActions>
           <Box width="100%">
-            <Button
-              fullWidth
-              className={classes.buyNowBtn}
-              onClick={handleOpen}
-            >
-              Buy
-            </Button>
+            {isConnected ? (
+              <Button
+                fullWidth
+                className={classes.buyNowBtn}
+                onClick={handleOpen}
+              >
+                Buy
+              </Button>
+            ) : (
+              <ConnectButton.Custom>
+                {({ openConnectModal }) => (
+                  <Button
+                    fullWidth
+                    className={classes.buyNowBtn}
+                    onClick={openConnectModal}
+                  >
+                    Buy
+                  </Button>
+                )}
+              </ConnectButton.Custom>
+            )}
+
             <BuyModal
               isOpen={open}
               handleClose={handleClose}
