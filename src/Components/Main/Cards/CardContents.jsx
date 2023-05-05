@@ -7,39 +7,14 @@ import {
   Button,
   Typography,
 } from "@mui/material";
-import { makeStyles } from "@material-ui/styles";
-import upright from "../../../assets/upright.png";
-import BuyModal from "../Modal/BuyModal";
+
 import { useAccount } from "wagmi";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
-const useStyles = makeStyles(() => ({
-  btn: {
-    backgroundColor: "#000 !important",
-  },
-  fonts: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
-    fontWeight: "600",
-  },
-  tabs: {
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-  },
-  buyNowBtn: {
-    backgroundColor: "#000 !important",
-    color: "#fff !important",
-    width: "100%",
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-  },
-  flexDisplay: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "flex-end",
-  },
-}));
+import upright from "../../../assets/upright.png";
+import BuyModal from "../Modal/BuyModal";
+
+import useStyles from "../../styles";
 
 export default function CryptoCards({
   cryptoTitle,
@@ -98,7 +73,7 @@ export default function CryptoCards({
             mt={2.5}
           >
             <Box
-              className={classes.flexDisplay}
+              className={classes.CardContentflexDisplay}
               alignItems="flex-start"
               justifyContent="space-evenly"
               gap={1}
@@ -117,12 +92,12 @@ export default function CryptoCards({
                 {img3 && <img src={img3} width="24" height="24" />}
               </Box>
             </Box>
-            <Box className={classes.flexDisplay}>
+            <Box className={classes.CardContentflexDisplay}>
               <Typography variant="caption" color="text.secondary">
                 Price Change <br /> (in 24hrs)
               </Typography>
               <Box
-                className={classes.flexDisplay}
+                className={classes.CardContentflexDisplay}
                 flexDirection="row"
                 alignItems="center"
                 gap={0.5}

@@ -1,38 +1,8 @@
 import React from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-
 import { Button } from "@mui/material";
-import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(() => ({
-  btn: {
-    backgroundColor: "#000 !important",
-    textTransform: "none !important",
-    fontWeight: "600 !important",
-    fontSize: "15px !important",
-  },
-  fonts: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
-    fontWeight: "600",
-  },
-  flexDisplay: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  buyNowBtn: {
-    backgroundColor: "#000 !important",
-    color: "#fff !important",
-    width: "100%",
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-    padding: "8px 15px !important",
-    borderRadius: "5px !important",
-    textTransform: "none !important",
-    fontSize: "16px !important",
-  },
-}));
+import useStyles from "../styles";
 
 const ConnectBtn = () => {
   const classes = useStyles();

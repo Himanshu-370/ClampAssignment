@@ -7,68 +7,8 @@ import {
   TextField,
   Slider,
 } from "@mui/material";
-import { makeStyles } from "@material-ui/styles";
 
-const useStyles = makeStyles(() => ({
-  btn1: {
-    backgroundColor: "#000 !important",
-    color: "#fff !important",
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-    flex: 1,
-    margin: "0 5px",
-  },
-  btn2: {
-    backgroundColor: "#fff !important",
-    color: "#000 !important",
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-    flex: 1,
-    margin: "0 5px",
-    border: "1px solid #ccc !important",
-  },
-  fonts: {
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-    backgroundColor: "#fff !important",
-    border: "none !important",
-    boxShadow: "none !important",
-    textTransform: "none !important",
-  },
-  buttonStyle: {
-    fontFamily: "Roboto",
-    fontWeight: "600 !important",
-    color: "#000 !important",
-    backgroundColor: "#fff !important",
-    border: "none !important",
-    boxShadow: "none !important",
-    textTransform: "none !important",
-    "&:hover": {
-      backgroundColor: "#ccc !important",
-    },
-  },
-  flexDisplay: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  boxSize: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    backgroundColor: "#fff",
-    border: "none",
-    borderRadius: "10px",
-    padding: "20px",
-  },
-  boxStyle: {
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    padding: "20px",
-  },
-}));
+import useStyles from "../../styles";
 
 const AmountModal = ({
   isOpen,

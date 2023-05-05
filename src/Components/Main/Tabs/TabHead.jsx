@@ -4,27 +4,10 @@ import { getAccount } from "@wagmi/core";
 import { makeStyles } from "@material-ui/styles";
 import { useBalance } from "wagmi";
 
-const useStyles = makeStyles(() => ({
-  btn: {
-    backgroundColor: "#000 !important",
-  },
-  fonts: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
-    fontWeight: "600 !important",
-    color: "#000 !important",
-    textTransform: "none !important",
-  },
-  flexDisplay: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-}));
+import useStyles from "../../styles";
 
 const TabHead = () => {
   const classes = useStyles();
-
   const account = getAccount();
 
   const { data, isError, isLoading } = useBalance({
@@ -38,12 +21,18 @@ const TabHead = () => {
     <React.Fragment>
       <Box
         className={classes.flexDisplay}
+        justifyContent="flex-start"
         mt={4}
         mb={4}
         gap={6}
         flexWrap="wrap"
       >
-        <Box className={classes.flexDisplay} gap={4} flexWrap="wrap">
+        <Box
+          className={classes.flexDisplay}
+          justifyContent="flex-start"
+          gap={4}
+          flexWrap="wrap"
+        >
           <img src="https://test.joinclamp.com/assets/default-profile.svg" />
           <Typography
             variant="h4"

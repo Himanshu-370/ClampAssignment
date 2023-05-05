@@ -1,9 +1,10 @@
 import React from "react";
 import { Grid, Typography, Box } from "@mui/material";
-import CardContents from "./CardContents";
-import cryptoData from "./cryptoData";
 import { Paper, InputBase, IconButton } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+
+import CardContents from "./CardContents";
+import cryptoData from "./cryptoData";
 
 const CryptoCards = () => {
   const [isLoading, setIsLoading] = React.useState(true);

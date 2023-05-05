@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Box,
-  Button,
   Typography,
   Table,
   TableBody,
@@ -9,10 +7,9 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  TablePagination,
   Paper,
 } from "@mui/material";
-import { fetchTransaction, getAccount, fetchToken } from "@wagmi/core";
+import { getAccount } from "@wagmi/core";
 import { useTransaction, useToken } from "wagmi";
 
 const columns = [

@@ -1,32 +1,15 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/styles";
-import CryptoCards from "../Cards/CryptoCards";
-import { Tabs, Tab, Typography, Box } from "@mui/material";
+import { Tabs, Tab, Box } from "@mui/material";
 import { useAccount } from "wagmi";
+
 import TabHead from "./TabHead";
 import History from "./History";
 import WatchList from "./WatchList";
 import Dashboard from "./Dashboard";
+import CryptoCards from "../Cards/CryptoCards";
 
-const useStyles = makeStyles(() => ({
-  btn: {
-    backgroundColor: "#000 !important",
-  },
-  fonts: {
-    fontFamily: "Roboto",
-    fontSize: "18px",
-    fontWeight: "600 !important",
-    color: "#000 !important",
-    textTransform: "none !important",
-  },
-  flexDisplay: {
-    display: "flex",
-    justifyContent: "flex-start",
-    alignItems: "center",
-  },
-}));
-
+import useStyles from "../../styles";
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
