@@ -56,21 +56,35 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    "@media (max-width: 600px)": { flexWrap: "wrap" },
   },
   boxSize: {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
+    width: "auto",
+    height: "auto",
     backgroundColor: "#fff",
     border: "none",
     borderRadius: "10px",
     padding: "20px",
+    "@media (max-width: 600px)": {
+      width: "100%",
+      height: "100%",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      overflow: "auto",
+    },
   },
   boxStyle: {
     border: "1px solid #ccc",
     borderRadius: "10px",
     padding: "20px",
+    width: "100%",
+    "@media (min-width:1000px)": {
+      width: "auto",
+    },
   },
 }));
 
@@ -183,11 +197,11 @@ const TokenModal = ({
                       </Box>
                     </Box>
                     <Box>
-                      <Typography variant="subtitle2" className={classes.fonts}>
+                      <Typography variant="body1" className={classes.fonts}>
                         {value1}%
                       </Typography>
-                      <Typography variant="caption">
-                        {(value1 * 0.000033814735518258446) / 100}
+                      <Typography variant="body1">
+                        {((value1 * 0.000033814735518258446) / 100).toFixed(9)}
                       </Typography>
                     </Box>
                     <Box>
@@ -231,11 +245,11 @@ const TokenModal = ({
                       </Box>
                     </Box>
                     <Box>
-                      <Typography variant="subtitle2" className={classes.fonts}>
+                      <Typography variant="body1" className={classes.fonts}>
                         {value2}%
                       </Typography>
-                      <Typography variant="caption">
-                        {(value2 * 0.000033814735518258446) / 100}
+                      <Typography variant="body1">
+                        {((value2 * 0.000033814735518258446) / 100).toFixed(9)}
                       </Typography>
                     </Box>
                     <Box>

@@ -36,8 +36,14 @@ const TabHead = () => {
 
   return (
     <React.Fragment>
-      <Box className={classes.flexDisplay} mt={4} mb={4} gap={6}>
-        <Box className={classes.flexDisplay} gap={4}>
+      <Box
+        className={classes.flexDisplay}
+        mt={4}
+        mb={4}
+        gap={6}
+        flexWrap="wrap"
+      >
+        <Box className={classes.flexDisplay} gap={4} flexWrap="wrap">
           <img src="https://test.joinclamp.com/assets/default-profile.svg" />
           <Typography
             variant="h4"

@@ -53,21 +53,35 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
+    "@media (max-width: 600px)": { flexWrap: "wrap" },
   },
   boxSize: {
     position: "absolute",
     top: "50%",
     left: "50%",
     transform: "translate(-50%, -50%)",
+    width: "auto",
+    height: "auto",
     backgroundColor: "#fff",
     border: "none",
     borderRadius: "10px",
     padding: "20px",
+    "@media (max-width: 600px)": {
+      width: "100%",
+      height: "100%",
+      maxWidth: "100%",
+      maxHeight: "100%",
+      overflow: "auto",
+    },
   },
   boxStyle: {
     border: "1px solid #ccc",
     borderRadius: "10px",
     padding: "20px",
+    width: "100%",
+    "@media (min-width:1000px)": {
+      width: "auto",
+    },
   },
 }));
 
@@ -194,11 +208,25 @@ const BuyModal = ({ isOpen, handleClose, cryptoTitle, img1, img2, img3 }) => {
                       value={slider1}
                       onChange={handleSlider1Change}
                     />
-                    <Typography variant="caption" className={classes.fonts}>
-                      {slider1
-                        ? (slider1 * 0.000033814735518258446) / 100
-                        : "NaN"}
-                    </Typography>
+                    <Box
+                      display="flex"
+                      alignItems="flex-end"
+                      flexDirection="column"
+                      gap={1}
+                    >
+                      <Typography
+                        className={classes.fonts}
+                        variant="caption1"
+                        textAlign="right"
+                      >
+                        {slider1}.00%
+                      </Typography>
+                      <Typography variant="caption" className={classes.fonts}>
+                        {slider1
+                          ? (slider1 * 0.000033814735518258446) / 100
+                          : "NaN"}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
@@ -228,11 +256,25 @@ const BuyModal = ({ isOpen, handleClose, cryptoTitle, img1, img2, img3 }) => {
                       value={slider2}
                       onChange={handleSlider2Change}
                     />
-                    <Typography variant="caption" className={classes.fonts}>
-                      {slider2
-                        ? (slider2 * 0.000033814735518258446) / 100
-                        : "NaN"}
-                    </Typography>
+                    <Box
+                      display="flex"
+                      alignItems="flex-end"
+                      flexDirection="column"
+                      gap={1}
+                    >
+                      <Typography
+                        className={classes.fonts}
+                        variant="caption1"
+                        textAlign="right"
+                      >
+                        {slider2}.00%
+                      </Typography>
+                      <Typography variant="caption" className={classes.fonts}>
+                        {slider2
+                          ? (slider2 * 0.000033814735518258446) / 100
+                          : "NaN"}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               </Box>

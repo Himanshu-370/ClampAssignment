@@ -73,20 +73,24 @@ const CryptoCards = () => {
           <Box>Loading...</Box>
         ) : (
           <Grid container spacing={3}>
-            {filteredCryptoData.map((crypto, id) => (
-              <Grid key={id} item xs={12} sm={6} md={4}>
-                <CardContents
-                  cryptoTitle={crypto.title}
-                  cryptoChange={crypto.change}
-                  topbarBG1={crypto.color1}
-                  topbarBG2={crypto.color2}
-                  topbarBG3={crypto.color3}
-                  img1={crypto.img1}
-                  img2={crypto.img2}
-                  img3={crypto.img3}
-                />
-              </Grid>
-            ))}
+            {filteredCryptoData.length > 0 ? (
+              filteredCryptoData.map((crypto, id) => (
+                <Grid key={id} item xs={12} sm={6} md={4}>
+                  <CardContents
+                    cryptoTitle={crypto.title}
+                    cryptoChange={crypto.change}
+                    topbarBG1={crypto.color1}
+                    topbarBG2={crypto.color2}
+                    topbarBG3={crypto.color3}
+                    img1={crypto.img1}
+                    img2={crypto.img2}
+                    img3={crypto.img3}
+                  />
+                </Grid>
+              ))
+            ) : (
+              <Typography variant="subtitle">No data found.</Typography>
+            )}
           </Grid>
         )}
       </Box>
