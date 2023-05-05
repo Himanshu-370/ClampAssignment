@@ -64,7 +64,7 @@ const TokenModal = ({
               <img src={closeIcon} />
             </Button>
           </Box>
-          <Box className={classes.flexDisplay} gap={3}>
+          <Box className={classes.flexDisplay} gap={3} flexWrap="wrap">
             <Typography className={classes.fonts} variant="h4">
               {value * 0.9880866393888882} <br /> {data?.symbol}
             </Typography>
